@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="user-detail">
+      <h1>User details</h1>
+      <button class="btn" onclick="handleOnClick()">Add User</button>
+    </div>
+    <div class="header">
+      <h1>Avatar</h1>
+      <h1>first_name</h1>
+      <h1>last_name</h1>
+      <h1>Action</h1>
+    </div>
+    <div class="data">
+      <ol class="list"></ol>
+    </div>
+    <script>
+      fetch("https://reqres.in/api/users?page=1&&per_page=15")
+        .then((response) => {
+          return response.json();
+        })
+        // .then((data) => console.log(data));
+        .then((obj) => {
+          console.log(obj);
+          obj.data.forEach((user) => {
+            let markup = `<div class="list-items"><img src="${user.avatar}"><li>${user.first_name}</li><li>${user.last_name}</li></div>`;
+            // const markup = html;
+            document
+              .querySelector("ol")
+              .insertAdjacentHTML("beforeend", markup);
+          });
+        });
+      const handleOnClick = () => {
+        alert("Add a new User !");
+      };
+    </script>
+  </body>
+</html>
