@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Javascript Practice2</title>
+  </head>
+  <body>
+    <div class="user-detail">
+      <h1>User details</h1>
+      <button class="btn" id="btn">Add User</button>
+    </div>
+    <div class="container">
+      <table class="userdata">
+        <thead class="tHeading">
+          <th>Avatar</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Action</th>
+        </thead>
+        <tbody id="fromApi"></tbody>
+      </table>
+    </div>
+    <form
+      id="form-control"
+      autocomplete="off"
+    >
+      <div class="heading" id="heading">
+        <p id="updateUser">Add User</p>
+        <p id="closebtn"><i class="fa fa-times"></i></p>
+      </div>
+      <label for="fname">First Name<sup style="color: red">*</sup></label>
+      <input type="text" required placeholder="firstname" id="fname" />
+      <label for="lname">Last Name<sup style="color: red">*</sup></label>
+      <input type="text" required placeholder="lastname" id="lname" />
+      <label for="email">Email<sup style="color: red">*</sup></label>
+      <input type="email" required placeholder="example@.com" id="email" />
+      <label for="img-link">Image-link<sup style="color: red">*</sup></label>
+      <input type="text" required placeholder="link" id="img-link" />
+      <input
+        type="button"
+        value="Submit"
+        id="subtn"
+        onclick="handleOnSubmit({users})"
+      />
+    </form>
+
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
